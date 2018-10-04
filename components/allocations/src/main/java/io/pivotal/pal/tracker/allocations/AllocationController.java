@@ -3,6 +3,7 @@ package io.pivotal.pal.tracker.allocations;
 import io.pivotal.pal.tracker.allocations.data.AllocationDataGateway;
 import io.pivotal.pal.tracker.allocations.data.AllocationFields;
 import io.pivotal.pal.tracker.allocations.data.AllocationRecord;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/allocations")
+@EnableCircuitBreaker
 public class AllocationController {
 
     private final AllocationDataGateway gateway;

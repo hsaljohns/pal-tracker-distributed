@@ -3,6 +3,7 @@ package io.pivotal.pal.tracker.timesheets;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryDataGateway;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryFields;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryRecord;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/time-entries")
+@EnableCircuitBreaker
 public class TimeEntryController {
 
     private final TimeEntryDataGateway gateway;
